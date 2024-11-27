@@ -145,3 +145,25 @@ const cars = [
     model: "Uno",
   },
 ];
+
+const spanishPersons = persons.filter((person) => {
+  return person.country === "ES";
+});
+
+console.log(spanishPersons);
+
+const spanishCarsIds = spanishPersons.map((person) => {
+  return person.car;
+});
+
+console.log(spanishCarsIds);
+
+const spanishCars = spanishCarsIds.map((carId) => {
+  const car = cars.find((car) => {
+    return car.id === carId;
+  });
+
+  return car;
+});
+
+console.log(spanishCars);

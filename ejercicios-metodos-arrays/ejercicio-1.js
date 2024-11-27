@@ -183,3 +183,58 @@ const coches = [
     transmision: "automatico",
   },
 ];
+
+// 1. Obtén todos los coches de la marca Audi.
+
+const cochesAudi = coches.filter((coche) => {
+  return coche.marca.toLocaleLowerCase() === "audi";
+});
+
+console.log(cochesAudi);
+
+// 2. Obtén un array con todos los colores de los coches de marca BMW.
+
+const cochesBmw = coches.filter((coche) => {
+  return coche.marca.toLocaleLowerCase() === "bmw";
+});
+
+console.log(cochesBmw);
+
+const coloresBmw = cochesBmw.map((coche) => {
+  return coche.color;
+});
+
+console.log(coloresBmw);
+
+const setColoresBmw = new Set(coloresBmw);
+
+const coloresBmwSinDuplicados = [...setColoresBmw];
+
+console.log(coloresBmwSinDuplicados);
+
+// 3. Obtén un array con los coches automáticos
+
+const cochesAutomaticos = coches.filter((coche) => {
+  return coche.transmision === "automatico";
+});
+
+console.log(cochesAutomaticos);
+
+// 4. Obtén un array con los coches cuyo precio sea mayor de 50.000€
+const cochesDeMasDeCincuentaMil = coches.filter((coche) => {
+  return coche.precio > 50000;
+});
+
+console.log(cochesDeMasDeCincuentaMil);
+
+// 5. Obtén el precio medio de los coches BMW
+
+let precioTotalBmw = 0;
+
+for (const coche of cochesBmw) {
+  precioTotalBmw += coche.precio;
+}
+
+const mediaPrecioBmw = precioTotalBmw / cochesBmw.length;
+
+console.log(mediaPrecioBmw);
